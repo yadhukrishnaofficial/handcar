@@ -136,10 +136,10 @@ WSGI_APPLICATION = 'HandCar.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'handcardb',
-        'USER': 'postgres',
+        'NAME': 'handcar-db',
+        'USER': 'handcar',
         'PASSWORD': 'Handcartest123#',
-        'HOST': 'handcardb.c70684smid3l.eu-north-1.rds.amazonaws.com',
+        'HOST': 'handcar-db.c70684smid3l.eu-north-1.rds.amazonaws.com',
         'PORT': '5432',
 
     }
