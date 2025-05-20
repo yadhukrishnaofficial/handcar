@@ -42,7 +42,7 @@ SECRET_KEY = 'django-insecure-g*6$8q350_^v7k=e-%ky4$&nn48ds8=&mvpqi5&)j=d_n5b(b!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '3.109.148.149', 'whimsical-sprite-caea63.netlify.app', 'handcar-admin.netlify.app']
+ALLOWED_HOSTS = ['localhost', '13.60.44.10', 'whimsical-sprite-caea63.netlify.app', 'handcar-admin.netlify.app']
 
 
 
@@ -138,8 +138,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'HandcarDB',
         'USER': 'postgres',
-        'PASSWORD': 'Tron25Handcar',
-        'HOST': 'database-1.cr820eg6e7lj.ap-south-1.rds.amazonaws.com',
+        'PASSWORD': 'Handcartest123#',
+        'HOST': 'handcardb.c70684smid3l.eu-north-1.rds.amazonaws.com',
         'PORT': '5432',
 
     }
