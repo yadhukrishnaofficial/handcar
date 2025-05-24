@@ -42,15 +42,15 @@ SECRET_KEY = 'django-insecure-g*6$8q350_^v7k=e-%ky4$&nn48ds8=&mvpqi5&)j=d_n5b(b!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost','51.20.223.9']
+ALLOWED_HOSTS = ['localhost','51.20.223.9','handcar.ae','admin.handcar.ae']
 
 
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'http://localhost:3000',
-    'https://whimsical-sprite-caea63.netlify.app',
-    'https://handcar-admin.netlify.app',
+    'https://handcar.ae',
+    'http://admin.handcar.ae',
 ]
 
 CORS_ALLOW_CREDENTIALS = True
