@@ -43,7 +43,15 @@ SECRET_KEY = 'django-insecure-g*6$8q350_^v7k=e-%ky4$&nn48ds8=&mvpqi5&)j=d_n5b(b!
 DEBUG = False
 
 # ALLOWED_HOSTS = ['localhost','51.20.223.9','handcar.ae','admin.handcar.ae','api.handcar.ae']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "51.20.223.9",
+    "handcar.ae",
+    "admin.handcar.ae",
+    "api.handcar.ae"
+]
+
 
 
 
