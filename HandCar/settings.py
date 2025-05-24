@@ -51,11 +51,11 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'https://handcar.ae',
     'http://admin.handcar.ae',
-    'https://api.handcar.ae'
+    'https://api.handcar.ae',
 ]
 
 CORS_ALLOW_CREDENTIALS = True
-
+CORS_ALLOW_ALL_ORIGINS = False
 
 
 # Application definition
