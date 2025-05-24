@@ -217,10 +217,6 @@ EMAIL_HOST_PASSWORD = 'wkxv jmop yrha ldnq'  # Your email password
 DEFAULT_FROM_EMAIL = 'parvathynair186@gmail.com'  # Default sender email
 
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',
-    "http://localhost:3000",
-]
 
 CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken','Set-Cookie']
 
