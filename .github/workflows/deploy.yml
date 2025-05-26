@@ -20,7 +20,7 @@ jobs:
         username: ${{ secrets.SSH_USER }}  # Matches your stored secret
         key: ${{ secrets.SSH_PRIVATE_KEY }}  # Matches your stored secret
         script: |
-          cd /home/ec2-user/handcar-backend  # Change this if needed
+          cd /home/ubuntu/handcar  # Change this if needed
           git pull origin main
           source venv/bin/activate
           pip install -r requirements.txt
