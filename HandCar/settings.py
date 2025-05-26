@@ -42,7 +42,6 @@ SECRET_KEY = 'django-insecure-g*6$8q350_^v7k=e-%ky4$&nn48ds8=&mvpqi5&)j=d_n5b(b!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-# ALLOWED_HOSTS = ['localhost','51.20.223.9','handcar.ae','admin.handcar.ae','api.handcar.ae']
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
@@ -52,20 +51,41 @@ ALLOWED_HOSTS = [
     "api.handcar.ae"
 ]
 
+# CORS_ALLOWED_ORIGINS = [
+#     'http://localhost:5173',
+#     'http://localhost:3000',
+#     'https://handcar.ae',
+#     'https://admin.handcar.ae',
+# ]
 
+# CORS_ALLOW_CREDENTIALS = True
+# CORS_ALLOW_ALL_ORIGINS = True
 
-
+# Disable this in production
+CORS_ALLOW_ALL_ORIGINS = False  # Changed from True
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',
-    'http://localhost:3000',
-    'https://handcar.ae',
-    'https://admin.handcar.ae',
+    'http://localhost:5173',  # For local development
+    'http://localhost:3000',  # For local development
+    'https://handcar.ae',     # Your frontend domain
+    'https://admin.handcar.ae',  # Admin frontend domain
 ]
 
-CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_ALL_ORIGINS = False  
+CORS_ALLOW_CREDENTIALS = True  # This is fine since your frontend uses withCredentials: true
 
+CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken','Set-Cookie']
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
 
 # Application definition
 
@@ -216,21 +236,6 @@ EMAIL_HOST_USER = 'parvathynair186@gmail.com'  # Your email address
 EMAIL_HOST_PASSWORD = 'wkxv jmop yrha ldnq'  # Your email password
 DEFAULT_FROM_EMAIL = 'parvathynair186@gmail.com'  # Default sender email
 
-
-
-CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken','Set-Cookie']
-
-CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
-]
 
 TIME_ZONE = 'Asia/Kolkata'  # Replace with your preferred time zone
 USE_TZ = True
