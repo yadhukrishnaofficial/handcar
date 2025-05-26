@@ -67,8 +67,9 @@ CORS_ALLOW_ALL_ORIGINS = False  # Changed from True
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',  # For local development
     'http://localhost:3000',  # For local development
-    'https://handcar.ae',     # Your frontend domain
+    'https://www.handcar.ae',     # Your frontend domain
     'https://admin.handcar.ae',  # Admin frontend domain
+    'https://handcar.ae',
 ]
 
 CORS_ALLOW_CREDENTIALS = True  # This is fine since your frontend uses withCredentials: true
