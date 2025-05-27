@@ -10,14 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
-
 from django.core.exceptions import ImproperlyConfigured
-
 from . import keys
 from pathlib import Path
-
-
-
 import cloudinary
 from decouple import config
 
@@ -27,60 +22,44 @@ cloudinary.config(
     api_secret=config('CLOUDINARY_API_SECRET')
 )
 
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-g*6$8q350_^v7k=e-%ky4$&nn48ds8=&mvpqi5&)j=d_n5b(b!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# TEMPORARILY SET TO TRUE FOR DEBUGGING
+DEBUG = True  # Changed from False - this will show detailed error messages
 
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
     "51.20.223.9",
     "handcar.ae",
+    "www.handcar.ae",  # Added www subdomain
     "admin.handcar.ae",
     "api.handcar.ae"
 ]
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_HOST = True
-
 APPEND_SLASH = True
 
-# CORS_ALLOWED_ORIGINS = [
-#     'http://localhost:5173',
-#     'http://localhost:3000',
-#     'https://handcar.ae',
-#     'https://admin.handcar.ae',
-# ]
-
-# CORS_ALLOW_CREDENTIALS = True
-# CORS_ALLOW_ALL_ORIGINS = True
-
-# Disable this in production
-CORS_ALLOW_ALL_ORIGINS = False  # Changed from True
-
+# CORS Configuration
+CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',  # For local development
-    'http://localhost:3000',  # For local development
-    'https://www.handcar.ae',     # Your frontend domain
-    'https://admin.handcar.ae',  # Admin frontend domain
+    'http://localhost:5173',
+    'http://localhost:3000',
     'https://handcar.ae',
+    'https://www.handcar.ae',  # Make sure www is included
+    'https://admin.handcar.ae',
 ]
 
-CORS_ALLOW_CREDENTIALS = True  # This is fine since your frontend uses withCredentials: true
+CORS_ALLOW_CREDENTIALS = True
+CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken', 'Set-Cookie']
 
-CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken','Set-Cookie']
-
+# Enhanced CORS headers
 CORS_ALLOW_HEADERS = [
     'accept',
     'accept-encoding',
@@ -91,10 +70,28 @@ CORS_ALLOW_HEADERS = [
     'user-agent',
     'x-csrftoken',
     'x-requested-with',
+    'cache-control',  # Added
+    'pragma',         # Added
+]
+
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+# CSRF Configuration for API
+CSRF_TRUSTED_ORIGINS = [
+    "https://handcar.ae",
+    "https://www.handcar.ae",
+    "https://admin.handcar.ae",
+    "https://api.handcar.ae",
 ]
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -106,18 +103,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'rest_framework_simplejwt.token_blacklist',
-
 ]
-
-
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'App1.authentication.CustomJWTAuthentication',  # Check cookies first, then fallback
-        'rest_framework_simplejwt.authentication.JWTAuthentication',  # Only checks headers
-    ),
-}
-
 
 from datetime import timedelta
 
